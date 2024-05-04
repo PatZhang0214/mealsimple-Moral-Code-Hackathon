@@ -5,7 +5,7 @@ function fetchRecipes() {
 
     fetch(apiUrl)
     .then(response => {
-        // Check if the response is successful
+
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -14,8 +14,8 @@ function fetchRecipes() {
     })
     .then(data => {
         // Data contains the JSON response from the API
-        // Log the data for now, you can process it further as needed
 
+        console.log(data)
         renderMeals(data.meals);
 
 
@@ -24,7 +24,7 @@ function fetchRecipes() {
         //});
     })
     .catch(error => {
-        // Handle any errors that occurred during the fetch
+
         console.error('There was a problem with the fetch operation:', error);
     });
 }
@@ -32,7 +32,7 @@ function fetchRecipes() {
 function renderMeals(meals){
     const mealListContainer = document.getElementById('mealList');
 
-    // Clear any existing content in the container
+
     mealListContainer.innerHTML = '';
 
     // Create a list element to hold the meals
@@ -42,7 +42,29 @@ function renderMeals(meals){
     meals.forEach(meal => {
         // Create a list item element
         const listItem = document.createElement('li');
-        listItem.textContent = meal.strMeal;
+
+
+        const img = document.createElement('img');
+        img.src = meal.strMealThumb;
+        img.alt = meal.strMeal;
+
+
+        listItem.appendChild(img);
+
+
+        const mealName = document.createElement('p');
+        mealName.textContent = meal.strMeal;
+
+
+        listItem.appendChild(mealName);
+
+        // Add event listener to the list item
+        listItem.addEventListener('click', function() {
+
+            window.open(meal.strYoutube, '_blank');
+        });
+
+
         listElement.appendChild(listItem);
     });
 
