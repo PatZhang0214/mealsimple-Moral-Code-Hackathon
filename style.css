@@ -61,3 +61,37 @@ nav ul li a{
     border-style: solid;
     border-width: 2px
 }
+
+
+#recipeButton {
+    background-color: springgreen;
+}
+
+.meal-list{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.meal-list li {
+    display: inline-block; /* Display list items in a row */
+    width: calc(33.33% - 20px); /* Each item takes up a third of the width, with a gap */
+    margin: 10px; /* Add spacing around each item */
+    vertical-align: top; /* Align items at the top */
+    box-sizing: border-box; /* Include padding and border in the width */
+    border: 1px solid #ccc; /* Add border for each item */
+    padding: 10px; /* Add padding */
+}
+
+#recipeTitle{
+    text-align: center;
+    padding: 10px;
+}
+
+.input-container{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
