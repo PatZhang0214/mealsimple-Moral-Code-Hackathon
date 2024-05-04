@@ -23,7 +23,7 @@
         </nav>
     </div>
     <div id="menuBtn">
-        <img src="menu.png" id="menu">
+        <img src="menu_icon.png" id="menu">
     </div>
     <script>
         var menuBtn = document.getElementById("menuBtn")
@@ -35,20 +35,50 @@
         menuBtn.onclick = function(){
             if(sideNav.style.right == "-250px"){
                 sideNav.style.right = "0";
-                menu.src = "close.png";
+                menu.src = "menu_icon.png";
             }
             else{
                 sideNav.style.right = "-250px";
-                menu.src = "menu.png";
+                menu.src = "menu_icon.png";
             }
         }
     </script>
-
-    <div class="ms-5 mt-5">
-        <header class="text-start">
-            <h1>MealSimple</h1>
-            <p class="font-weight-light">Let's end hunger together</p>
-        </header>
+    <div class="container-fluid banner">
+        <div class="row">
+            <header class="m-3 text-start">
+                <div class="px-4 pt-3 pb-1">
+                    <h2>MealSimple</h2>
+                    <p class="font-weight-light">Let's end hunger on campus together</p>
+                </div>
+            </header>
+        </div>
     </div>
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6 donations">
+                    <h1 class="text-center fw-lighter">Donate</h1>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="m-5 row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h1 class="text-center line pb-3 ">Our Mission</h1>
+                <p class="text-center mt-4">Our website is a comprehensive platform that addresses food insecurity by
+                        connecting users with local food banks and providing access to a digitized
+                        inventory of available food items. Through our user-friendly interface,
+                        users can easily locate nearby food banks using our integrated Google map.
+                        They can add desired food items to a cart, place orders, and receive personalized
+                        meal plans and recipes based on their preferences and dietary restrictions.
+                    <br><br>
+                        In addition to facilitating food orders, we also provide a platform for monetary
+                        donations to cover transportation fees, ensuring efficient delivery of food items.
+                        Our website aims to empower individuals and families by providing them with the
+                        necessary resources to make informed choices and access nutritious meals.
+                </p>
+            </div>
+        </div>
   </body>
 </html>
