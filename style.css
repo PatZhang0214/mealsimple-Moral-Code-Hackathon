@@ -130,3 +130,21 @@ a:active {
     border-radius: 10px;
     box-shadow: 5px 5px springgreen
 }
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, .1);
+    border-radius: 50%;
+    border-left-color: green;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

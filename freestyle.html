@@ -1,0 +1,110 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MealSimple - Hackathon</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <div id="sideNav">
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="maps.html">MAPS</a></li>
+                <li><a href="meal.html">CREATE A MEAL</a></li>
+                <li><a href="freestyle.html">FREESTYLE</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="menuBtn">
+        <img src="menu_icon.png" id="menu">
+    </div>
+    <script>
+        var menuBtn = document.getElementById("menuBtn")
+        var sideNav = document.getElementById("sideNav")
+        var menu = document.getElementById("menu")
+
+        sideNav.style.right = "-250px";
+
+        menuBtn.onclick = function(){
+            if(sideNav.style.right == "-250px"){
+                sideNav.style.right = "0";
+                menu.src = "menu_icon.png";
+            }
+            else{
+                sideNav.style.right = "-250px";
+                menu.src = "menu_icon.png";
+            }
+        }
+    </script>
+    <div class="container-fluid banner">
+        <div class="row">
+            <header class="m-3 text-start">
+                <div class="px-4 pt-3 pb-1">
+                    <h1 id="Name">MealSimple</h1>
+                    <p class="font-weight-light">Let's end hunger on campus together</p>
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <div class="m-5 row">
+        <div class="col-12 text-center">
+
+            <div class="row justify-content-center mb-5">
+                <h2>Freestyle Recipe Generator</h2>
+            </div>
+
+            <div class="row justify-content-center mb-4">
+                <div class="col-2">
+                    <img src="chef.png" style="width:100px;" class="chef">
+                </div>
+                <div class="col-4">
+                    <p>Hello, my name is Chef Al, and I am your personal AI chef.</p>
+                    <p>Let's create a meal together today!</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-5" style="outline: 2px solid green; padding-top: 2%; padding-bottom: 2%; margin: 1%;">
+                    <form id="recipeForm">
+                        <div class="mb-4">
+                            <label for="cuisine">Cuisine:</label> <br>
+                            <input type="text" id="cuisine" name="cuisine" placeholder="e.g. Indian">
+                        </div>
+                        <div class="mb-4">
+                            <label for="restrictions">Dietary Restrictions:</label> <br>
+                            <input type="text" id="restrictions" name="restrictions" placeholder="e.g. Vegan">
+                        </div>
+                        <div class="mb-4">
+                            <label for="time">Time To Make (Minutes):</label> <br>
+                            <input type="number" id="time" name="time" placeholder="e.g. 30">
+                        </div>
+                        <div class="mb-4">
+                            <label for="cost">Budget ($ CAD):</label> <br>
+                            <input type="number" id="cost" name="cost" placeholder="e.g. 20">
+                        </div>
+                        <button id="recipeButton" type="button" onclick="generateRecipe()">Generate Recipe</button>
+                    </form>
+                </div>
+                <div class="col-5" style="outline: 2px solid green; padding-top: 2%; padding-bottom: 2%; margin: 1%;">
+                    <div id="recipeResult"></div>
+                    <div class="spinner" style="display: none;"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
