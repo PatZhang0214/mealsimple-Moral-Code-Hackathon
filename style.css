@@ -130,3 +130,10 @@ a:active {
     border-radius: 10px;
     box-shadow: 5px 5px springgreen
 }
+
+.meal-list li img {
+    max-width: 100%; /* Set maximum width to 100% of the container */
+    height: auto; /* Allow the height to adjust proportionally */
+    display: block; /* Make the image a block-level element */
+    margin: 0 auto 10px; /* Center the image horizontally and add some space below */
+}

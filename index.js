@@ -15,7 +15,7 @@ function fetchRecipes() {
     .then(data => {
         // Data contains the JSON response from the API
         // Log the data for now, you can process it further as needed
-        
+        console.log(data)
         renderMeals(data.meals);
         
         
@@ -41,7 +41,23 @@ function renderMeals(meals){
     // Loop through the meals array and create list items for each meal
     meals.forEach(meal => {
         const listItem = document.createElement('li');
-        listItem.textContent = meal.strMeal;
+
+        // Create an image element for the meal thumbnail
+        const img = document.createElement('img');
+        img.src = meal.strMealThumb; // Set the image source
+        img.alt = meal.strMeal; // Set the alt text
+
+        // Append the image to the list item
+        listItem.appendChild(img);
+
+        // Create a paragraph element for the meal name
+        const mealName = document.createElement('p');
+        mealName.textContent = meal.strMeal; // Set the text content
+
+        // Append the meal name to the list item
+        listItem.appendChild(mealName);
+
+        // Append the list item to the list
         listElement.appendChild(listItem);
     });
 
