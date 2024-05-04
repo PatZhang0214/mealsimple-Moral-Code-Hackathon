@@ -89,3 +89,10 @@ a:active {
     background-color: transparent;
     text-decoration: none;
 }
+
+.options {
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    box-shadow: 5px 5px springgreen
+}
