@@ -40,6 +40,7 @@ function renderMeals(meals){
 
     // Loop through the meals array and create list items for each meal
     meals.forEach(meal => {
+        // Create a list item element
         const listItem = document.createElement('li');
 
         // Create an image element for the meal thumbnail
@@ -56,6 +57,12 @@ function renderMeals(meals){
 
         // Append the meal name to the list item
         listItem.appendChild(mealName);
+
+        // Add event listener to the list item
+        listItem.addEventListener('click', function() {
+            // Open the strYoutube link in a new tab
+            window.open(meal.strYoutube, '_blank');
+        });
 
         // Append the list item to the list
         listElement.appendChild(listItem);

@@ -111,6 +111,27 @@ a:active {
     box-sizing: border-box; /* Include padding and border in the width */
     border: 1px solid #ccc; /* Add border for each item */
     padding: 10px; /* Add padding */
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.meal-list li img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.meal-list li:hover img {
+    transform: scale(1.1); /* Increase size by 10% */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+}
+
+/* Style paragraph elements containing recipe names */
+.meal-list li p {
+    font-size: 18px; /* Set the font size to 18 pixels */
+    margin-bottom: 5px; /* Add some space below the paragraph */
 }
 
 #recipeTitle{
