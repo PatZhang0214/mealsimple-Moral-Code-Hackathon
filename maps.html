@@ -1,24 +1,11 @@
-<!--
-  Copyright 2023 Google LLC
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      https://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
 <!DOCTYPE html>
 <html>
   <head>
     <title>Locator</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
       html,
       body {
@@ -30,9 +17,6 @@
         width: 100%;
         height: 100%;
 
-        /* These parameters customize the appearance of Locator Plus. See the documentation at
-           https://github.com/googlemaps/extended-component-library/blob/main/src/store_locator/README.md
-           for more information. */
         --gmpx-color-surface: #fff;
         --gmpx-color-on-surface: #212121;
         --gmpx-color-on-surface-variant: #757575;
@@ -60,9 +44,9 @@
           {"title":"Borden Street","address1":"Borden St","address2":"Toronto, ON, Canada","coords":{"lat":43.66154380048597,"lng":-79.4069992509262},"placeId":"Eh5Cb3JkZW4gU3QsIFRvcm9udG8sIE9OLCBDYW5hZGEiLiosChQKEgndlXXJlDQriBECalMdG0fqgRIUChIJpTvG15DL1IkRd8S0KlBVNTI"},
           {"title":"348 Spadina Ave.","address1":"348 Spadina Ave.","address2":"Toronto, ON M5T 1J5, Canada","coords":{"lat":43.654436849961556,"lng":-79.39908700859834},"placeId":"Ei0zNDggU3BhZGluYSBBdmUuLCBUb3JvbnRvLCBPTiBNNVQgMUo1LCBDYW5hZGEiMRIvChQKEglTZG-VwzQriBG1WqsfGiF1jRDcAioUChIJe-d9cMM0K4gR3gzT51cgPFI"}
         ],
-        "mapOptions": {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":false,"zoom":4,"zoomControl":true,"maxZoom":17,"mapId":""},
+        "mapOptions": {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":true,"zoom":4,"zoomControl":true,"maxZoom":17,"mapId":""},
         "mapsApiKey": "AIzaSyBRGN3n6NYi-IN2OXZhnBNoSYwm2bYdzxE",
-        "capabilities": {"input":true,"autocomplete":true,"directions":false,"distanceMatrix":true,"details":false,"actions":false}
+        "capabilities": {"input":true,"autocomplete":true,"directions":true,"distanceMatrix":true,"details":true,"actions":false}
       };
 
     </script>
@@ -75,13 +59,64 @@
     </script>
   </head>
   <body>
-    <!-- Please note unpkg.com is unaffiliated with Google Maps Platform. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <div id="sideNav">
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="maps.html">MAPS</a></li>
+                <li><a href="meal.html">CREATE A MEAL</a></li>
+                <li><a href="freestyle.html">FREESTYLE</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="menuBtn">
+        <img src="menu_icon.png" id="menu">
+    </div>
+    <script>
+        var menuBtn = document.getElementById("menuBtn")
+        var sideNav = document.getElementById("sideNav")
+        var menu = document.getElementById("menu")
+
+        sideNav.style.right = "-250px";
+
+        menuBtn.onclick = function(){
+            if(sideNav.style.right == "-250px"){
+                sideNav.style.right = "0";
+                menu.src = "menu_icon.png";
+            }
+            else{
+                sideNav.style.right = "-250px";
+                menu.src = "menu_icon.png";
+            }
+        }
+    </script>
+    <div class="container-fluid banner">
+      <div class="row g-0">
+          <header class="m-3 text-start">
+              <div class="px-4 pt-3 pb-1">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-1 px-0">
+                              <img src="logo.png" width="70" height="70">
+                          </div>
+                          <div class="col py-3 gx-0">
+                              <h1 id="Name">MealSimple</h1>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <p class="font-weight-light px-5">Let's end hunger on campus together</p>
+          </header>
+      </div>
+  </div>
+
     <script type="module" src="https://unpkg.com/@googlemaps/extended-component-library@0.6"></script>
 
-    <!-- Uses components from the Extended Component Library; see
-         https://github.com/googlemaps/extended-component-library for more information
-         on these HTML tags and how to configure them. -->
     <gmpx-api-loader key="AIzaSyBRGN3n6NYi-IN2OXZhnBNoSYwm2bYdzxE" solution-channel="GMP_QB_locatorplus_v10_cABD"></gmpx-api-loader>
     <gmpx-store-locator map-id="DEMO_MAP_ID"></gmpx-store-locator>
+
   </body>
 </html>

@@ -9,7 +9,7 @@ function fetchRecipes() {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        // Parse the JSON from the response
+
         return response.json();
     })
     .then(data => {
@@ -40,6 +40,7 @@ function renderMeals(meals){
 
     // Loop through the meals array and create list items for each meal
     meals.forEach(meal => {
+        // Create a list item element
         const listItem = document.createElement('li');
         listItem.textContent = meal.strMeal;
         listElement.appendChild(listItem);
