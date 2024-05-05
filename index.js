@@ -78,7 +78,7 @@ async function generateRecipe() {
     const apiKey = 'sk-proj-FuaeF67W8CUavlAtyu85T3BlbkFJ2F64lhPlWTAQCAYEFDst';
     const url = 'https://api.openai.com/v1/chat/completions';
 
-    if (document.getElementById('cuisine').value === '' || document.getElementById('restructions').value ==='' || document.getElementById('time').value === '' || document.getElementById('cost').value === '') {
+    if (document.getElementById('cuisine').value === '' || document.getElementById('restrictions').value ==='' || document.getElementById('time').value === '' || document.getElementById('cost').value === '') {
         document.getElementById('recipeResult').innerText = 'Please fill in all boxes first.';
         return;
     }
