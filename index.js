@@ -75,7 +75,7 @@ function renderMeals(meals){
 async function generateRecipe() {
 
     // API key and URL for OpenAI
-    const apiKey = 'sk-proj-FuaeF67W8CUavlAtyu85T3BlbkFJ2F64lhPlWTAQCAYEFDst';
+    const apiKey = localStorage.getItem('apiKey');
     const url = 'https://api.openai.com/v1/chat/completions';
 
     if (document.getElementById('cuisine').value === '' || document.getElementById('restrictions').value ==='' || document.getElementById('time').value === '' || document.getElementById('cost').value === '') {
