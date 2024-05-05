@@ -17,10 +17,10 @@ nav ul li a{
     text-decoration: none;
     color: #070000;
 }
+
 #menuBtn{
     width: 50px;
     height: 50px;
-    /* background: #009688; */
     text-align: center;
     position: fixed;
     right: 60px;
@@ -29,10 +29,15 @@ nav ul li a{
     z-index: 3;
     cursor: pointer;
 }
+
 #menuBtn img{
     width: 60px;
-    /* filter: invert(100%) */
 }
+
+#menuBtn img:hover{
+    filter: invert(25%);
+}
+
 @media screen and (max-width: 770px){
     .banner-text h1{
         font-size: 44px;
@@ -60,6 +65,10 @@ nav ul li a{
 .donations {
     border-style: solid;
     border-width: 2px
+}
+
+.donations:hover {
+    background-color: lightgoldenrodyellow;
 }
 
 #Name {
@@ -159,21 +168,17 @@ a:active {
     margin: 0 auto 10px; /* Center the image horizontally and add some space below */
 }
 
-
 .spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid rgba(0, 0, 0, .1);
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border: 4px solid gray;
     border-radius: 50%;
     border-left-color: green;
     animation: spin 1s infinite linear;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    100% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg); }
 }

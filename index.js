@@ -75,23 +75,37 @@ function renderMeals(meals){
 async function generateRecipe() {
 
     // API key and URL for OpenAI
-    const apiKey = 'sk-proj-FuaeF67W8CUavlAtyu85T3BlbkFJ2F64lhPlWTAQCAYEFDst';
+    const apiKey = localStorage.getItem('apiKey');
     const url = 'https://api.openai.com/v1/chat/completions';
+
+    if (document.getElementById('cuisine').value === '' || document.getElementById('restrictions').value ==='' || document.getElementById('time').value === '' || document.getElementById('cost').value === '') {
+        document.getElementById('recipeResult').innerText = 'Please fill in all boxes first.';
+        return;
+    }
 
     // Use gpt-4 with a prompt to generate a recipe
     const formData = {
         model: "gpt-4",
         messages: [{
             "role": "user",
-            "content": `Generate a name, approximate budget, ingredients list, and a step-by-step recipe for a meal based on these specifications: Cuisine: ${document.getElementById('cuisine').value}, Dietary Restrictions: ${document.getElementById('restrictions').value}, Time To Make: ${document.getElementById('time').value}, Budget: ${document.getElementById('cost').value} (make the response easy to read and less than 100 words)`
+            "content": `Generate on seperate lines:
+            a name, total cost, ingredients list (and prices beside each one), and a step-by-step recipe for a meal based on these specifications:
+            Cuisine: ${document.getElementById('cuisine').value},
+            Dietary Restrictions: ${document.getElementById('restrictions').value},
+            Time To Make: ${document.getElementById('time').value},
+            Maximum Cost: ${document.getElementById('cost').value}
+            (make the response less than 100 words)`
         }],
         max_tokens: 200
     };
 
     try {
+
+        // loading animation when waiting
         const spinner = document.querySelector('.spinner');
         spinner.style.display = 'block';
 
+        // fetch the recipe
         const response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -102,15 +116,16 @@ async function generateRecipe() {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to fetch recipe: ' + response.statusText);
+            throw new Error('Failed to generate recipe.');
         }
 
+        // display the results
         const result = await response.json();
         document.getElementById('recipeResult').innerText = result.choices[0].message.content;
         spinner.style.display = 'none';
     }
     catch (error) {
-        document.getElementById('recipeResult').innerText = 'Failed to generate recipe: ' + error.message;
+        document.getElementById('recipeResult').innerText = 'Failed to generate recipe.';
     }
 
 }
