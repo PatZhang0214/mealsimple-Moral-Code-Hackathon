@@ -24,4 +24,4 @@
   </li>
 </ul>
 
-<p>Made with HTML, CSS (boostrap), and JS</p>
+<p>Made with HTML, CSS (bootstrap), and JS</p>
