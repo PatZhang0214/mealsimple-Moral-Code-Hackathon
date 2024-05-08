@@ -72,6 +72,22 @@ function renderMeals(meals){
     mealListContainer.appendChild(listElement);
 }
 
+async function initializeMap() {
+
+    const apiKey = localStorage.getItem('apiKey');
+    const loader = document.createElement('gmpx-api-loader');
+
+    loader.setAttribute('key', apiKey);
+    loader.setAttribute('solution-channel', 'GMP_QB_locatorplus_v10_cABD');
+    document.body.appendChild(loader);
+
+    customElements.whenDefined('gmpx-store-locator').then(() => {
+      const locator = document.querySelector('gmpx-store-locator');
+      locator.configureFromQuickBuilder(CONFIGURATION);
+    });
+
+}
+
 async function generateRecipe() {
 
     // API key and URL for OpenAI
